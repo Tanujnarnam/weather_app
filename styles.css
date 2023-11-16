@@ -100,3 +100,16 @@ body{
 #weather-details p{
   font-size: 14px;
 }
+
+#sun h2{
+  margin: 0;
+  padding: 0;
+}
+
+#sunrise{
+  margin-bottom: 0;
+}
+
+#sunset{
+  margin: 0;
+}

@@ -61,6 +61,8 @@ async function getWeather(lat,long){
     insertPrecip(result);
     insertHumidity(result);
     insertUV(result);
+    insertImage(result);
+    insertSunTime(result);
   } catch (error) {
     console.error(error);
   }
@@ -114,4 +116,29 @@ function insertUV(json){
   else{
     uv_scale.textContent = 'Extreme';
   }
+}
+
+function insertImage(json){
+  const weather_img = document.querySelector('#image');
+  const designation = json.data.current_condition[0].weatherDesc[0].value
+  if(designation === "Overcast" || designation === "Cloudy"){
+    weather_img.src = "/assets/cloudy.png";
+  }
+  else if(designation == "Clear"){
+    weather_img.src = "/assets/moon.png";
+  }
+  else if(designation == "Sunny"){
+    weather_img.src = "/assets/sunny.png";
+  }
+  else if(designation == "Mist"){
+    weather_img.src = "/assets/mist.png";
+  }
+}
+
+function insertSunTime(json){
+  const sunrise = document.querySelector('#sunrise-info');
+  const sunset = document.querySelector('#sunset-info');
+
+  sunrise.textContent = json.data.weather[0].astronomy[0].sunrise;
+  sunset.textContent = json.data.weather[0].astronomy[0].sunset;
 }
