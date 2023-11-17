@@ -61,23 +61,26 @@ async function getWeather(lat,long){
     insertPrecip(result);
     insertHumidity(result);
     insertUV(result);
-    insertImage(result);
+    insertImageandBackground(result);
     insertSunTime(result);
   } catch (error) {
     console.error(error);
   }
 }
 
+//Updating temperature
 function insertTemp(json){
   const curr_temp = document.querySelector('#temp');
   curr_temp.textContent = `${json.data.current_condition[0].temp_F}°F`;
 }
 
+//Updating feels like
 function insertFeelsLike(json){
   const feel_like = document.querySelector('#feels-info');
   feel_like.textContent = `${json.data.current_condition[0].FeelsLikeF}°F`;
 }
 
+//Updating Wind Speed
 function insertWindSpeed(json){
   const wind_speed = document.querySelector('#speed-info');
   const wind_direction = document.querySelector('#speed-dir');
@@ -86,16 +89,19 @@ function insertWindSpeed(json){
   wind_direction.textContent = `${json.data.current_condition[0].winddir16Point}`;
 }
 
+//Updating precipitation
 function insertPrecip(json){
   const precipitation = document.querySelector('#precip-info');
   precipitation.textContent = `${json.data.current_condition[0].precipMM} mm`;
 }
 
+//Updating Humidity
 function insertHumidity(json){
   const humidity = document.querySelector('#humid-info');
   humidity.textContent = `${json.data.current_condition[0].humidity}%`
 }
 
+//Updating UV and also rating for UV
 function insertUV(json){
   const uv = document.querySelector('#uv-info');
   const uv_scale = document.querySelector('#uv-scale');
@@ -118,42 +124,54 @@ function insertUV(json){
   }
 }
 
-function insertImage(json){
+//Updating Image and also changing color of background(both based on weather designation)
+function insertImageandBackground(json){
   const weather_img = document.querySelector('#image');
   const designation = json.data.current_condition[0].weatherDesc[0].value
+  const background = document.querySelector('body');
+
   if(designation === "Overcast" || designation === "Cloudy"){
     weather_img.src = "/assets/cloudy.png";
+    background.style.backgroundImage = 'linear-gradient(#b2beb5,#848884)';
   }
   else if(designation === "Clear"){
     weather_img.src = "/assets/moon.png";
+    background.style.backgroundImage = 'linear-gradient(#131862,#2e4482,#546bab)';
   }
   else if(designation === "Sunny"){
     weather_img.src = "/assets/sunny.png";
   }
   else if(designation === "Mist"){
     weather_img.src = "/assets/mist.png";
+    background.style.backgroundImage = 'linear-gradient(#a5c0c2,#96a8ae)';
   }
   else if(designation === "Partly cloudy"){
     weather_img.src = "/assets/partlycloudy.png"
+    background.style.backgroundImage = 'linear-gradient(#7ea1b2,#207e8b)';
   }
   else if(designation === "Patchy snow possible" || designation === "Blowing snow" || designation === "Blizzard" || designation === "Freezing drizzle" || designation === "Heavy freezing drizzle" || designation === "Light freezing rain"){
     weather_img.src = "/assets/snowflake.png"
+    background.style.backgroundImage = 'linear-gradient(#98b0d7,#dadfec)';
   }
   else if(designation === "Moderate rain" ||designation === "Heavy rain"){
     weather_img.src = "/assets/rain.png"
+    background.style.backgroundImage = 'linear-gradient(#4e6881,#4a6583)';
   }
   else if(designation === "Patchy light rain" || designation === "Light rain"){
     weather_img.src = "/assets/shower.png"
+    background.style.backgroundImage = 'linear-gradient(#4799c0,#c8d4e7)';
   }
   else if(designation === "Thundery outbreaks possible"){
     weather_img.src = "/assets/thunderstorm.png"
+    background.style.backgroundImage = 'linear-gradient(#372951,#765c96)';
   }
   else if(designation === "Light drizzle" || designation === "Patchy light drizzle"){
     weather_img.src = "/assets/drizzle.png"
+    background.style.backgroundImage = 'linear-gradient(#4799c0,#c8d4e7)';
   }
-
 }
 
+//Inserting sunrise and sunset times
 function insertSunTime(json){
   const sunrise = document.querySelector('#sunrise-info');
   const sunset = document.querySelector('#sunset-info');
