@@ -7,11 +7,11 @@ function position_success(position){
 }
 
 function position_error(){
-  p.textContent = "Sorry could not return location";
+  //p.textContent = "Sorry could not return location";
 }
 
 if(!navigator.geolocation) {
-  p.textContent = "Geolocation not supported";
+  //p.textContent = "Geolocation not supported";
 }
 else{
   navigator.geolocation.getCurrentPosition(position_success, position_error);
@@ -127,7 +127,7 @@ function insertUV(json){
 //Updating Image and also changing color of background(both based on weather designation)
 function insertImageandBackground(json){
   const weather_img = document.querySelector('#image');
-  const designation = json.data.current_condition[0].weatherDesc[0].value
+  const designation = json.data.current_condition[0].weatherDesc[0].value;
   const background = document.querySelector('body');
 
   if(designation === "Overcast" || designation === "Cloudy"){
@@ -146,27 +146,27 @@ function insertImageandBackground(json){
     background.style.backgroundImage = 'linear-gradient(#a5c0c2,#96a8ae)';
   }
   else if(designation === "Partly cloudy"){
-    weather_img.src = "/assets/partlycloudy.png"
+    weather_img.src = "/assets/partlycloudy.png";
     background.style.backgroundImage = 'linear-gradient(#7ea1b2,#207e8b)';
   }
   else if(designation === "Patchy snow possible" || designation === "Blowing snow" || designation === "Blizzard" || designation === "Freezing drizzle" || designation === "Heavy freezing drizzle" || designation === "Light freezing rain"){
-    weather_img.src = "/assets/snowflake.png"
+    weather_img.src = "/assets/snowflake.png";
     background.style.backgroundImage = 'linear-gradient(#98b0d7,#dadfec)';
   }
   else if(designation === "Moderate rain" ||designation === "Heavy rain"){
-    weather_img.src = "/assets/rain.png"
+    weather_img.src = "/assets/rain.png";
     background.style.backgroundImage = 'linear-gradient(#4e6881,#4a6583)';
   }
   else if(designation === "Patchy light rain" || designation === "Light rain"){
-    weather_img.src = "/assets/shower.png"
+    weather_img.src = "/assets/shower.png";
     background.style.backgroundImage = 'linear-gradient(#4799c0,#c8d4e7)';
   }
   else if(designation === "Thundery outbreaks possible"){
-    weather_img.src = "/assets/thunderstorm.png"
+    weather_img.src = "/assets/thunderstorm.png";
     background.style.backgroundImage = 'linear-gradient(#372951,#765c96)';
   }
   else if(designation === "Light drizzle" || designation === "Patchy light drizzle"){
-    weather_img.src = "/assets/drizzle.png"
+    weather_img.src = "/assets/drizzle.png";
     background.style.backgroundImage = 'linear-gradient(#4799c0,#c8d4e7)';
   }
 }
