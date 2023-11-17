@@ -61,6 +61,10 @@
 
 /*Adjustment to for sizes for narrow phones screens such as Galaxy Fold*/
 @media screen and (max-width: 300px) and (orientation:portrait) {
+  #weather-image{
+    display: none;
+  }
+  
   #weather-details h2{
     font-size: 15px;
   }
