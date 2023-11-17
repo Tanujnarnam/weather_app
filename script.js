@@ -7,11 +7,11 @@ function position_success(position){
 }
 
 function position_error(){
-  //p.textContent = "Sorry could not return location";
+  alert("Please Enable Location Services");
 }
 
 if(!navigator.geolocation) {
-  //p.textContent = "Geolocation not supported";
+  alert("Geolocation Unavailable, Please Try Later");
 }
 else{
   navigator.geolocation.getCurrentPosition(position_success, position_error);
