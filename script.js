@@ -7,6 +7,9 @@ function position_success(position){
 }
 
 function position_error(){
+  const grid = document.querySelector('#grid');
+  grid.style.display = 'none';
+  
   alert("Please Enable Location Services");
 }
 
