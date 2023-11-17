@@ -124,15 +124,34 @@ function insertImage(json){
   if(designation === "Overcast" || designation === "Cloudy"){
     weather_img.src = "/assets/cloudy.png";
   }
-  else if(designation == "Clear"){
+  else if(designation === "Clear"){
     weather_img.src = "/assets/moon.png";
   }
-  else if(designation == "Sunny"){
+  else if(designation === "Sunny"){
     weather_img.src = "/assets/sunny.png";
   }
-  else if(designation == "Mist"){
+  else if(designation === "Mist"){
     weather_img.src = "/assets/mist.png";
   }
+  else if(designation === "Partly cloudy"){
+    weather_img.src = "/assets/partlycloudy.png"
+  }
+  else if(designation === "Patchy snow possible" || designation === "Blowing snow" || designation === "Blizzard" || designation === "Freezing drizzle" || designation === "Heavy freezing drizzle" || designation === "Light freezing rain"){
+    weather_img.src = "/assets/snowflake.png"
+  }
+  else if(designation === "Moderate rain" ||designation === "Heavy rain"){
+    weather_img.src = "/assets/rain.png"
+  }
+  else if(designation === "Patchy light rain" || designation === "Light rain"){
+    weather_img.src = "/assets/shower.png"
+  }
+  else if(designation === "Thundery outbreaks possible"){
+    weather_img.src = "/assets/thunderstorm.png"
+  }
+  else if(designation === "Light drizzle" || designation === "Patchy light drizzle"){
+    weather_img.src = "/assets/drizzle.png"
+  }
+
 }
 
 function insertSunTime(json){

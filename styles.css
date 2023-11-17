@@ -3,6 +3,7 @@ html, body{
   padding: 0;
   margin: 0;
   height: 100%;
+  background-image: linear-gradient(#448EE2,skyblue);
 }
 
 p,h1{
@@ -10,16 +11,12 @@ p,h1{
   margin: 0;
 }
 
-/*Setting Background to a gradient*/
-body{
-  background-image: linear-gradient(#448EE2,skyblue);
-}
 
 /*Centering the div and defining its size*/
 #content{
+  margin-top: 5%;
   width: 100%;
-  height: 700px;
-  max-height: 700px;
+  height: 90%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +39,8 @@ body{
   border-radius: 15px;
   box-shadow: 2px 2px 9px 2px rgba(0,0,0,0.2);
   font-family: 'Poppins', sans-serif;
+  display: grid;
+  grid-template-rows: 1fr 3fr 4fr;
 }
 
 /*Styling for the City text*/
@@ -77,13 +76,13 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  height: 320px;
+  height: 98%;
   align-items: center;
 }
 
 #weather-details div{
   width: 98%;
-  height: 95%;
+  height: 98%;
   background-color: rgba(255,255,255,0.2);
   border-radius: 15px;
   margin-left: 2px;
@@ -112,4 +111,8 @@ body{
 
 #sunset{
   margin: 0;
+}
+
+#test{
+  display: none;
 }
